@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{776B225F-1431-4BCF-867D-147263304BBC}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>DemoForms140</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DemoForms140.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BoolToHeightConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PageExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ListViewPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ScrollViewPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\TableOfContentsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ItemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListViewPageViewModel.cs" />
+  </ItemGroup>
+</Project>
