@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using DemoForms140.Helpers;
 using DemoForms140.ViewModels;
 using DemoForms140.Converters;
+using Xamarin;
+using System.Collections.Generic;
 
 namespace DemoForms140.Pages
 {
@@ -40,12 +42,37 @@ namespace DemoForms140.Pages
 				Command = new Command(() => this.OpenModalPage(new NavigationPage(new ListViewPage(_footerViewModel))))
 			};
 
+			var crashButton = new Button { 
+				Text = "Force a Crash",
+				Command = new Command(() => 
+				{
+					try 
+					{
+						throw new Exception("You broke it!");
+					} 
+					catch (Exception ex) {
+						Insights.Report(ex, new Dictionary<string,string>
+						{
+							{ "Where", "Table of Contents" },
+							{ "Issue", "Your guess is as good as mine." }
+						});
+					}
+				})
+			};
+
 			layout.Children.Add(scrollViewButton);
 			layout.Children.Add(listViewHeaderButton);
 			layout.Children.Add(listViewFooterButton);
 			layout.Children.Add(modalButton);
+			layout.Children.Add(crashButton);
 
 			Content = layout;
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			Xamarin.Insights.Track("Table of Contents Page");
 		}
 
 		private ListViewPageViewModel MakeListViewHeaderViewModel()

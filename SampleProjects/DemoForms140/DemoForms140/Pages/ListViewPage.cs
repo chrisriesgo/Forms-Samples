@@ -36,6 +36,7 @@ namespace DemoForms140.Pages
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+			Xamarin.Insights.Track(string.Format("ListView Page ({0})", Title));
 			_listView.ItemAppearing += _viewModel.ItemAppearing;
 			_viewModel.LoadItemsAsync();
 		}

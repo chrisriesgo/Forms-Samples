@@ -17,6 +17,15 @@ namespace DemoForms140.Droid
 		{
 			base.OnCreate(bundle);
 
+			#region Insights Key
+			const string INSIGHTS_KEY = "{insightskey}";
+			#endregion
+
+			if (!Xamarin.Insights.IsInitialized)
+			{
+				Xamarin.Insights.Initialize(INSIGHTS_KEY, ApplicationContext);
+			}
+
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			LoadApplication(new App());

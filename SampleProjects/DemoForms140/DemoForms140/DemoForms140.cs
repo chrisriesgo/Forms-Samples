@@ -13,6 +13,8 @@ namespace DemoForms140
 			var navigationPage = new NavigationPage(page);
 
 			MainPage = navigationPage;
+
+			Xamarin.Insights.Identify(Xamarin.Insights.Traits.GuestIdentifier, null);
 		}
 
 		protected override void OnStart()
